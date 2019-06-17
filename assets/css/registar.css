@@ -1,0 +1,67 @@
+.div_registar{
+		max-width: 100% !important;
+		width: 23rem;
+		margin:auto;
+		height: 30rem;
+		background: white;
+		border-left: 2px solid black;
+		border-right: 2px solid black;
+		color:white;
+		border-bottom: 2px solid black;
+	}
+
+	.div_registar .Registar_title h1 {
+		background: #535a6c;
+		padding: 1rem;
+		border-radius: 0rem 0rem 5rem 5rem;
+		text-align: center;
+		border-top:2px solid black;
+	}
+
+	.div_registar form {
+		text-align: center;
+	}
+
+	.div_registar form label {
+		color:black;
+		float:left;
+		margin-left:2rem;
+		font-size:1.1rem;
+	}
+
+	.div_registar form .input {
+		width: 20rem;
+		outline: none;
+		height:1.5rem;
+		font-size:0.9rem;
+		border:1px solid grey;
+	}
+
+	.div_registar form .inputbotao {
+		width: 13rem;
+		padding: 1rem;
+		font-size:1.1rem;
+		outline: none;
+		cursor: pointer;
+		border:1px solid black;
+		background: #535a6c;
+		color:white;
+		border-radius:2rem;
+	}
+
+	.div_registar form a {
+		text-decoration: none;
+		color:black;
+		transition: all 0.7s;
+	}
+
+	.div_registar form h3 {
+		font-weight: 300;
+		text-decoration: none;
+		color:black;
+	}
+
+	.div_registar form a:hover {
+		color: #9d9d9d;
+		border-bottom: 1px solid #9d9d9d;
+	}

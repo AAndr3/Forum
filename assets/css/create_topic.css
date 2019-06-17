@@ -1,0 +1,39 @@
+.div_topico {
+		width: 100rem;
+		margin:auto;
+	}
+
+	.div_topico .div_text {
+		width: 50rem;
+		margin-left:3rem;
+	}
+
+	.div_topico .div_info {
+		display: inline-block;
+	}
+
+	.div_topico .div_text .button_inserir {
+		width: 20%;
+		font-size:1.3rem;
+		cursor: pointer;
+		background: #535a6c;
+		padding: 0.6rem;
+		color:white;
+		border:1px solid black;
+	}
+
+	.div_topico .div_text .selectcat {
+		width: 40%;
+		outline: none;
+	}
+
+	.div_topico .div_text h2 {
+		font-weight: 300;
+		font-size:1.5rem;
+	}
+
+	.div_topico .div_text input[type=text] {
+		width: 85%;
+		height: 1.4rem;
+		outline: none;
+	}

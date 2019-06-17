@@ -1,0 +1,43 @@
+.div_topicos {
+		cursor: pointer;
+		width: 97rem;
+		margin:auto;
+		background: #535a6c;
+		padding: 1.3rem;
+		color:white;
+	}
+
+	.div_topicos .extras_topico {
+		display: inline-block;
+		float: right;	
+		vertical-align: middle;
+		margin-top:.3rem;
+		margin-right: 1rem;
+	}
+
+	.div_topicos .extras_topico i {
+		margin-left:1rem;
+		font-size: 1rem;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.div_topicos .extras_topico h4 {
+		vertical-align: middle;
+		margin-left:1rem;
+		display: inline-block;
+		padding-left: 0.3rem;
+		font-size: 1rem;
+	}
+
+	.div_topicos .icone_topico {
+		display: inline-block;
+		vertical-align: middle;
+		font-size:3rem;
+	}
+
+	.div_topicos .autor_topico {
+		display: inline-block;
+		margin-left:0.6rem;
+		vertical-align: middle;
+	}

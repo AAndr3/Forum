@@ -1,0 +1,134 @@
+*{
+		margin:0;
+		padding: 0;
+	}
+
+	header {
+		background: #535a6c;
+		padding: 2rem;
+
+	}
+
+	header .menu {
+		width: 100rem;
+		margin:auto;
+		color:white;
+		max-width: 100%;
+	}
+
+	header .logo {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	header .logo a {
+		color:white;
+		text-decoration: none;
+	}
+
+	header .extras {
+		display: inline-block;
+		margin-left:4rem;
+		vertical-align: middle;
+		font-size:1.2rem;
+	}
+
+	header .extras a {
+		color:white;
+		text-decoration: none;
+		margin-right: 3rem;
+		transition: 0.7s color ease;
+	}
+
+	header .extras a:hover {
+		color: #9d9d9d;
+	}
+
+	header .loginregistar {
+		display: inline-block;	
+		float: right;
+		vertical-align: middle;
+		margin-top:0.5rem;
+	}
+
+	header .loginregistar a {
+		text-decoration: none;
+		color:white;	
+		font-size: 1.2rem;
+	}
+
+	header .loginregistar span {
+		font-weight: bold;
+		margin-left:0.4rem;
+		margin-right: 0.4rem;
+	}
+
+	header .loginregistar .logado {
+		margin-right: 1.5rem;
+		transition: 0.7s color ease;
+	}
+
+	header .loginregistar .logado:hover {
+		color: #9d9d9d;
+		cursor: pointer;
+	}
+
+	@media screen and (max-width: 1000px) {
+		header .loginregistar .logado {
+			margin-right: 1rem;
+		}
+	}
+
+	@media screen and (max-width: 919px) {
+		header .extras {
+			margin-left:1.5rem;
+			font-size:1rem;
+		}
+		header .extras a {
+			margin-right: 2rem;
+		}
+		header .loginregistar a {
+			font-size: 1rem;
+		}
+		header .loginregistar span {
+			margin-left:0.2rem;
+			margin-right: 0.2rem;
+		}
+		header .loginregistar .logado {
+			margin-right: 0.4rem;
+		}	
+
+	}
+
+	@media screen and (max-width: 750px) {
+		header .extras {
+			display: none;
+		}
+		header {
+			padding: 1rem;
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		header .logo a {
+			font-size: 0.7rem;
+		}
+		header .loginregistar {
+			margin-top:0rem;
+		}
+	}
+
+	@media screen and (max-width: 450px) {
+		header .logo a {
+			font-size: 0.5rem;
+		}
+
+		header .loginregistar a {
+			font-size: 0.6rem;
+		}
+
+		header .loginregistar span {
+			font-size: 0.6rem;
+			margin-left:0.1rem;
+			margin-right: 0.1rem;
+		}
