@@ -8,8 +8,14 @@ $id_utilizador = $_SESSION['id_utilizador'];
 
 $id_topico = $_POST['id_topico'];
 
-if($verifica == 1) {
-	$sql = "INSERT INTO respostas (id_topico, id_utilizador) VALUES ('$id_topico', '$id_utilizador')";
-	$query = mysqli_query($bd, $sql);
+echo $verifica;
 
+if($verifica == 1) {
+	$sql = "INSERT INTO likes (id_topico, id_utilizador) VALUES ('$id_topico', '$id_utilizador')";
+	$query = mysqli_query($bd, $sql);
+}
+
+if($verifica == 2) {
+	$sql = "DELETE FROM likes WHERE id_topico = '$id_topico' AND id_utilizador = '$id_utilizador'";
+	$query = mysqli_query($bd, $sql);
 }

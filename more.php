@@ -33,6 +33,9 @@
 
   $id_utilizador = $res_topico['id_utilizador'];
 
+  if(isset($_SESSION['id_utilizador'])) {
+    $id_utilizador_session = $_SESSION['id_utilizador'];
+  }
 
   $sql_titulo = "SELECT * FROM titulo WHERE id_titulo = '$id_titulo'";
   $query_titulo = mysqli_query($bd, $sql_titulo);
@@ -75,12 +78,33 @@
 
     <?php 
 
-    if(isset($_SESSION['id_utilizador'])) { ?>
-      <button id="likebutton" class="buttons"><i class="fas fa-thumbs-up"></i></button>
-  <?php } ?>
-    
+    if(isset($_SESSION['id_utilizador'])) { 
 
-    <button class="buttons"><i class="fas fa-edit"></i></button>
+       $sql_likes = "SELECT * FROM likes WHERE id_topico = '$id_topico' AND id_utilizador = '$id_utilizador_session'";
+      $query_likes = mysqli_query($bd, $sql_likes);
+      $cont_likes = mysqli_num_rows($query_likes);
+      ?>
+      <button id="likebutton" class="buttons"><i id="like" class="fas fa-thumbs-up"></i></button><?php
+
+      if($cont_likes == 0) {
+        ?><script>document.getElementById("like").style.color = "black";</script><?php
+      }else if($cont_likes == 1) {
+        ?><script>document.getElementById("like").style.color = "green";</script><?php
+      }
+       
+   } 
+
+   ?>
+    
+    <?php
+
+    if(isset($_SESSION['id_utilizador'])) {
+      if($_SESSION['id_utilizador'] == $id_utilizador) { ?>
+        <button id="openmodal" class="buttons"><i class="fas fa-edit"></i></button> <?php
+      } 
+    } ?>
+
+    
   </div>
 
 	<hr style="margin-top:0.5rem;opacity: 0.5">
@@ -110,7 +134,7 @@ if($cont_resposta > 0) {
 
       ?>
 		<div class="div_resposta">
-  			<h5>By: <?php echo $nome_utilizador_resposta;?></h5>
+  			<h5>By: <?php echo utf8_encode($nome_utilizador_resposta);?></h5>
   			<br>
   			<?php echo $resposta;?>
 		</div><?php
@@ -126,36 +150,67 @@ if($cont_resposta > 0) {
 <div id="responder_topico" class="responder_div">
 	<button class="responder"  id="responder">Responder</button>
 	<input id="inputresponder" style="display: none;height: 1.5rem;outline: none;" placeholder="Adicionar comentário" type="text" size="100">
-	<button class="enviar" id="enviar" style="display: none;background: red;">Enviar</button>
+	<button class="enviar" id="enviar" style="display: none;">Enviar</button>
 </div>
 
 
-<br><br>
+<br>
+
+
+<div id="editar_topico_modal" class="modal">
+
+  <div class="modal-content">
+      <!-- EDITAR TOPICO-->
+
+      <!--/EDITAR TOPICO-->
+
+  </div>
+
+</div>
+
 
 <p id="teste"></p>
 
 <script>
 
-document.getElementById("likebutton").addEventListener("click", like);
+document.getElementById("like").addEventListener("click", like);
 
 document.getElementById("responder").addEventListener("click", responder);
 
 document.getElementById("enviar").addEventListener("click", responder_enviar);
 
 
+var modal = document.getElementById("editar_topico_modal");
+
+var btn = document.getElementById("openmodal");
+
+
+
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
 function like() {
-  var likebutton = document.getElementById("likebutton");
+  var likebutton = document.getElementById("like");
   var verifica = 0;
   var id_topico = "<?php echo $id_topico;?>";
 
   if(likebutton.style.color == "black") {
-    likebutton.style.color = "green";
-    verifica = 1;
+      likebutton.style.color = "green";
+      verifica = 1;
   }else {
     likebutton.style.color = "black";
     verifica = 2;
   }
-
 
   $.ajax({
     type:"post",
@@ -165,8 +220,8 @@ function like() {
       $('#teste').html(data);
     }
   });
-
 }
+
 
 function responder() {
 	var botao = document.getElementById("responder");
@@ -176,7 +231,10 @@ function responder() {
 	botao.style.display = "none";
 	input.style.display = "inline-block";
 	enviar.style.display = "inline-block";
+
 }
+
+
 
 function responder_enviar() {
   var input = document.getElementById("inputresponder").value;
@@ -190,10 +248,10 @@ function responder_enviar() {
     success:function(data) {
       $('#responder_topico').html(data);
     }
-  })
+  });
 }
-</script>
 
+</script>
 
 
 

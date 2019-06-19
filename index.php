@@ -51,6 +51,14 @@ do {
 	$res_utilizador = mysqli_fetch_assoc($query_utilizador);
 	$nome = $res_utilizador['nome_utilizador'];
 
+	$sql_likes = "SELECT * FROM likes WHERE id_topico = '$id_topico'";
+	$query_likes = mysqli_query($bd, $sql_likes);
+	$cont_likes = mysqli_num_rows($query_likes);
+
+	$sql_comentarios = "SELECT * FROM respostas WHERE id_topico = '$id_topico'";
+	$query_comentarios = mysqli_query($bd, $sql_comentarios);
+	$cont_comentarios = mysqli_num_rows($query_comentarios);
+
 
 	?>
 	<div class="div_topicos" onclick="window.location='more.php?id_topico=<?php echo $id_topico;?>'">
@@ -62,8 +70,8 @@ do {
 			<h4>By: <?php echo utf8_encode($nome);?></h4>
 		</div>
 		<div class="extras_topico">
-			<h4>3</h4>
-			<h4>4</h4>
+			<h4><?php echo $cont_comentarios;?></h4>
+			<h4><?php echo $cont_likes;?></h4>
 			<br>
 			<i class="fas fa-comment-dots"></i>
 

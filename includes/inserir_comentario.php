@@ -1,9 +1,6 @@
 <?php 
 
-
-
 include('config.php');
-
 
 if(!isset($_SESSION['id_utilizador'])) {
 	$_SESSION['erros'] = "Deves iniciar sessão";
@@ -34,24 +31,18 @@ if(!isset($_SESSION['id_utilizador'])) {
   			<?php echo $resposta;?>
 		</div><?php
 
-
-
 }
-
 
 ?>
 
 <style>
 
   .div_resposta2 {
-    margin-top:-1.05rem;
-    width: 97.45rem;
-    margin-left:1.5rem;
+    
+    width: 95rem;
+    margin: auto;
+    margin-top:-1.1rem;
     border: 1px solid black;
-    padding: 1rem;
   }
-
-
-
 
 </style>
